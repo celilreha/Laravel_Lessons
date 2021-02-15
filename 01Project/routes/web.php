@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App;
 use App\Http\Controllers\Deneme;
+use App\Http\Controllers\ValidationDersi;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +17,18 @@ use App\Http\Controllers\Deneme;
 */
 
 
-
-
+Route::view("/","welcome");
+Route::get("/kayit",ValidationDersi::class);
+/*
 Route::get("/iletisim",[App::class,"iletisim"]);
 Route::post("/iletisim/post",[App::class,"post"])->name("iletisim.post");
 
 Route::get('/', [App::class,"index"]);
 Route::get('/anasayfa', [Deneme::class,"index"]);
 Route::get('/kitap/{slug}/{yil?}/{yazar?}',[Deneme::class,"kitap"]);//soru işareti ile kullanıldığında olmasa da olur demek
-/*Route::get("/yas/{year}",function ($age){
-    return date('Y')-$age." yaşındasınız";
-})->where('year',"[0-9]+");*/
+//Route::get("/yas/{year}",function ($age){
+//    return date('Y')-$age." yaşındasınız";
+//})->where('year',"[0-9]+");
 Route::get('/uye/{ad}/{yas?}',function ($ad,$yas=null){
     return "Merhaba ".$ad.". Yaşınız: ".$yas;
 })->where(["ad"=>"[a-zA-Z]+","yas"=>"[0-9]+"]);//parametrenin nasıl bir parametre olacağını bildirmek için bu şekilde kullanılabilir.
@@ -39,3 +41,4 @@ Route::prefix("elektronik")->group(function (){//elektronik'ten sonra olacak say
     Route::get("laptop",function (){ return "laptop";});
     Route::get("kamera",function (){ return "kamera";});
 });
+*/
