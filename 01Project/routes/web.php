@@ -18,7 +18,8 @@ use App\Http\Controllers\ValidationDersi;
 
 
 Route::view("/","welcome");
-Route::get("/kayit",ValidationDersi::class);
+Route::get("/kayit",[ValidationDersi::class,"index"]);
+Route::post("/kayit-ol",[ValidationDersi::class,"post"])->name("kayit.post");
 /*
 Route::get("/iletisim",[App::class,"iletisim"]);
 Route::post("/iletisim/post",[App::class,"post"])->name("iletisim.post");
