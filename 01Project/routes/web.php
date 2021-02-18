@@ -18,7 +18,7 @@ use App\Http\Middleware\kotuKelime;
 */
 
 
-Route::view("/","welcome");
+Route::get("/",[App::class,"index"]);
 
 Route::get("/kayit",[ValidationDersi::class,"index"]);
 Route::post("/kayit-ol",[ValidationDersi::class,"post"])->middleware("kotu")->name("kayit.post");

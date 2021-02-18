@@ -18,6 +18,8 @@ class UserTable2 extends Migration
             $table->string("name");
             $table->string("email")->comment("email adresleri toplanıyor");
             $table->string("password");
+            $table->integer("age");
+            $table->integer("gender")->comment("0 woman - 1 man");
             $table->timestamps();
         });
     }
