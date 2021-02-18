@@ -16,6 +16,8 @@ class Posts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title");
+            $table->integer("user");
+            $table->integer("see")->default(100);
             $table->longText("description");
             $table->string("slug");
             $table->timestamps();
