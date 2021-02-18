@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App;
 use App\Http\Controllers\Deneme;
 use App\Http\Controllers\ValidationDersi;
+use App\Http\Middleware\kotuKelime;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,9 @@ use App\Http\Controllers\ValidationDersi;
 
 
 Route::view("/","welcome");
+
 Route::get("/kayit",[ValidationDersi::class,"index"]);
-Route::post("/kayit-ol",[ValidationDersi::class,"post"])->name("kayit.post");
+Route::post("/kayit-ol",[ValidationDersi::class,"post"])->middleware("kotu")->name("kayit.post");
 /*
 Route::get("/iletisim",[App::class,"iletisim"]);
 Route::post("/iletisim/post",[App::class,"post"])->name("iletisim.post");
