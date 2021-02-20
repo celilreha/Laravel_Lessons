@@ -4,14 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Post;
+use Illuminate\Support\Str;
 
 class App extends Controller
 {
     public function index(){
+        //model kullanarak sorgu
+        //$users=User::where("age","<",28)->count();
+        //$users=User::all();
+        //$user=User::find(102);
+        //model kullanarak ekleme işlemi(created_at ve updated_at otomatik oluşur)
+        /*$user=new User;
+        $user->name="Celil Reha";
+        $user->email="Celil@gmail.com";
+        $user->age=25;
+        $user->gender=1;
+        $user->password=md5("123456");
+        $user->save();*/
+        //model kullanarak insert ile db'ye ekleme
+        /*User::insert([
+            "name"=>"Celil Reha",
+        "email"=>"Celil@gmail.com",
+        "age"=>25,
+        "gender"=>1,
+        "password"=>md5("123456")
+        ]);*/
+        //model kullanarak update işlemi
+        //Post::where("id",2)->update(["title"=>"Laravel Dersleri Updated"]);
+        //model kullanarak farklı bir yolla update işlemi
+        $post=Post::find(2);
+        $post->title="Güncellendi";
+        $post->save();
+
+
         //sorgu için
         //$users=DB::table("users")->where("gender",1)->get();
-        $users=DB::table("users")->orderBy("age","asc")->get();
-        print_r($users);
+        //$users=DB::table("users")->orderBy("age","asc")->get();
         //ekleme işlemi
         /*DB::table("users")->insert([
             "name"=>"celil",
