@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    use HasFactory;
+    public function getUser(){
+        //one to one ilişkisi için
+        return $this->hasOne("App\Models\User","id","user");
+    }
 }

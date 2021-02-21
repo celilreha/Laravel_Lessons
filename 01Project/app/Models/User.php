@@ -10,5 +10,9 @@ class User extends Model
     //public $table="users";
     //eğer primarykey id değilse bunu da belirtmek gerekir
     //public $primaryKey = "uye_id";
-
+    public function getPosts(){
+        //eğer üçüncü parametre id olacaksa yazmaya gerek yok
+        //one to many ilişkisi için
+        return $this->hasMany("App\Models\Post","user","id");
+    }
 }

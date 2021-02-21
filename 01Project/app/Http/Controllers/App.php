@@ -34,9 +34,9 @@ class App extends Controller
         //model kullanarak update işlemi
         //Post::where("id",2)->update(["title"=>"Laravel Dersleri Updated"]);
         //model kullanarak farklı bir yolla update işlemi
-        $post=Post::find(2);
+        /*$post=Post::find(2);
         $post->title="Güncellendi";
-        $post->save();
+        $post->save();*/
 
 
         //sorgu için
@@ -56,8 +56,10 @@ class App extends Controller
            "email"=>"celilreha@gmail.com"
         ]);*/
         //silme işlemi
-        DB::table("users")->where("id",101)->delete();
-        //return view("welcome",["users"=>$users]);
+        //DB::table("users")->where("id",101)->delete();
+        $uye=User::find(102);
+        echo $uye->getPosts;
+        //return view("welcome");
     }
     public function iletisim(){
         return view("pages.iletisim");
